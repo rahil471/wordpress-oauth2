@@ -8,12 +8,20 @@ const getStats =  function(params, callback){
             )
     .then((response)=>{
         console.log(response);
-	if(params.StatType === 'visits'){
-		count = response.data.body.stats.visitors_yesterday;
+	if(params.StatType === 'Visitors'){
+        if(params.Period === 'Today'){
+            count = response.data.body.stats.visitors_today;
+        } else {
+            count = response.data.body.stats.visitors_yesterday;
+        }
 	} else {
-		count = response.data.body.stats.views_yesterday;
+        if(params.Period === 'Today'){
+            count = response.data.body.stats.views_yesterday;
+        } else {
+            count = response.data.body.stats.views_yesterday;
+        }
 	}
-	let reply = `Your website ciphertrick.com had ${count} ${params.StatType} on ${params.date}`
+	let reply = `Your website ciphertrick.com had ${count} ${params.StatType} ${params.Period}`
 	let format = { fulfillmentText: reply }
         callback(null, format);
     });
