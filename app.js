@@ -16,7 +16,7 @@ passport.use(new OAuth2Strategy({
     tokenURL: 'https://public-api.wordpress.com/oauth2/token',
     clientID: config.ClientId,
     clientSecret: config.ClientSecret,
-    callbackURL: "http://localhost:3000/auth/example/callback",
+    callbackURL: config.callbackUrl,
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log('Golololol', accessToken, refreshToken, profile);
