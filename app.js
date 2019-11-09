@@ -44,7 +44,9 @@ app.get('/auth/example/callback',
 
 
 app.post('/fullfill', (req, res)=>{
-    request.getStats(req.body, (err, response)=>{
+    console.log(req.body.queryResult.parameters);
+    request.getStats(req.body.queryResult.parameters, (err, response)=>{
+	console.log('response', response);
         res.json(response);
     })
 });
