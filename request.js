@@ -7,7 +7,7 @@ const getStats =  function(params, callback){
                 {headers: {'Authorization': `Bearer ${TOKEN}`}},
             )
     .then((response)=>{
-        console.log(response);
+//        console.log(response);
 	if(params.StatType === 'Visitors'){
         if(params.Period === 'Today'){
             count = response.data.body.stats.visitors_today;
@@ -16,7 +16,7 @@ const getStats =  function(params, callback){
         }
 	} else {
         if(params.Period === 'Today'){
-            count = response.data.body.stats.views_yesterday;
+            count = response.data.body.stats.views_today;
         } else {
             count = response.data.body.stats.views_yesterday;
         }

@@ -3,12 +3,11 @@ let app = express();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth2');
-TOKEN = config.token;
 const request = require('./request');
 const config = require('./config');
 var https = require('https');
 const fs = require('fs');
-
+TOKEN = config.token;
 app.use(bodyParser.json());
 app.use(passport.initialize());
 passport.use(new OAuth2Strategy({
